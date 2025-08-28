@@ -4,24 +4,45 @@
   <meta charset="UTF-8">
   <title>Agenda Pimpinan</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style> body { background:#0f172a; } </style>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .overlay {
+      background-color: rgba(0,0,0,0.6); /* overlay gelap */
+      min-height: 100vh;
+      padding: 24px;
+      color: white;
+    }
+  </style>
 </head>
-<body class="text-white p-6">
-  <!-- Header -->
-  <div class="flex justify-between items-center mb-6">
-    <h1 class="text-4xl font-bold">Agenda Pimpinan</h1>
-    <div id="clock" class="text-xl"></div>
+<body class="bg-cover bg-center" style="background-image: url('foto-kantor.jpg');">
+  <div class="overlay">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+      <div class="flex items-center gap-4">
+        <img src="logo.png" alt="Logo" class="h-14 w-14 rounded bg-white p-1 shadow-md"/>
+        <h1 class="text-4xl font-bold">Agenda Pimpinan</h1>
+      </div>
+      <div id="clock" class="text-xl"></div>
+    </div>
+
+    <!-- Highlight hari ini -->
+    <div id="highlight" class="mb-6"></div>
+
+    <!-- List Agenda -->
+    <div id="agenda" class="space-y-4"></div>
+
+    <!-- Footer brand -->
+    <div class="mt-8 text-center text-sm text-gray-300">
+      TVRI Lampung – Digital Signage
+    </div>
   </div>
 
-  <!-- Highlight hari ini -->
-  <div id="highlight" class="mb-6"></div>
-
-  <!-- List Agenda -->
-  <div id="agenda" class="space-y-4"></div>
-
   <script>
-    const apiKey = "AIzaSyB-EXtF86wkHM6ZwzGZ3JO2BhA8Wwi8xKI";
-    const calendarId = "sekret.tvrilampung@gmail.com";
+    const apiKey = "AIzaSyB-EXtF86wkHM6ZwzGZ3JO2BhA8Wwi8xKI"; // isi API key lu
+    const calendarId = "sekret.tvrilampung@gmail.com"; // isi Calendar ID lu
     const maxResults = 10;
 
     // Kategori warna
